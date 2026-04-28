@@ -3,180 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>台股 2025→2026 產業趨勢流程網站</title>
+    <title>康舒(6282)分析儀表板</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="hero">
       <div class="container">
-        <p class="tag">TWSE INDUSTRY TREND FLOW</p>
-        <h1>台股 2025 → 2026 產業趨勢變化：分析流程網站</h1>
+        <p class="tag">ACBEL 6282 DASHBOARD</p>
+        <h1>康舒科技（6282）分析網頁</h1>
         <p class="subtitle">
-          用「資料蒐集 → 指標建模 → 產業評分 → 投資決策」四段式流程，系統化追蹤台股產業輪動。
+          一頁完成「基本面、券商分點、法人籌碼、2030 產業情境」追蹤。可直接編輯，適合每週更新。
         </p>
-        <a class="btn" href="#flow">開始看流程</a>
       </div>
     </header>
 
     <main class="container">
-      <section class="card" id="snapshot">
-        <h2>一、2025 到 2026 產業變化快照</h2>
-        <div class="grid two">
-          <article>
-            <h3>主軸上升產業</h3>
-            <ul>
-              <li><strong>半導體先進製程/封裝：</strong>AI/HPC 需求持續擴張，供應鏈維持高檔。</li>
-              <li><strong>AI 伺服器與零組件：</strong>出口與資本支出連動強，能見度相對高。</li>
-              <li><strong>資安、軍工與通訊：</strong>政策導向（五大信賴產業）帶動中長期題材。</li>
-            </ul>
-          </article>
-          <article>
-            <h3>壓力較大的產業</h3>
-            <ul>
-              <li><strong>傳產（部分塑化、鋼鐵、工具機）：</strong>受中國產能與價格競爭壓力。</li>
-              <li><strong>高耗能製造：</strong>能源成本與碳治理要求提高，獲利波動增大。</li>
-              <li><strong>景氣循環股：</strong>受關稅、匯率與地緣風險影響，波動加劇。</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="card" id="flow">
-        <h2>二、流程網站設計（可直接當你的研究 SOP）</h2>
-        <ol class="steps">
-          <li>
-            <h3>Step 1 — 定義研究問題</h3>
-            <p>先鎖定 3 個問題：<br />
-              ① 哪些產業在 2026 相比 2025 明顯加速？<br />
-              ② 哪些產業由成長轉為盤整？<br />
-              ③ 哪些風險會讓估值下修？
-            </p>
-          </li>
-          <li>
-            <h3>Step 2 — 建立資料層（Data Layer）</h3>
-            <p>每月更新四類資料：總體、出口、產業營收、政策訊號。建議建立 CSV + Google Sheet + API（可選）三軌。</p>
-          </li>
-          <li>
-            <h3>Step 3 — 設計指標層（Indicator Layer）</h3>
-            <p>至少追蹤 6 指標：YoY 營收、出口年增率、毛利率趨勢、CAPEX 指引、庫存天數、政策加分。</p>
-          </li>
-          <li>
-            <h3>Step 4 — 產業評分層（Scoring Engine）</h3>
-            <p>加權範例：成長動能 35%、獲利品質 25%、政策/地緣 20%、估值安全邊際 20%。每月自動輸出排名。</p>
-          </li>
-          <li>
-            <h3>Step 5 — 決策層（Portfolio Action）</h3>
-            <p>將產業分成 A（加碼）、B（中立）、C（避開），並設置再平衡規則（如每月第一個交易日調整）。</p>
-          </li>
-        </ol>
+      <section class="card grid two">
+        <article>
+          <h2>快速狀態</h2>
+          <div class="kpi-grid">
+            <div class="kpi"><span>目前股價</span><strong id="price">46.8</strong></div>
+            <div class="kpi"><span>月營收YoY</span><strong id="revYoy">+14.63%</strong></div>
+            <div class="kpi"><span>法人合計(張)</span><strong id="instNet">+2,158</strong></div>
+            <div class="kpi"><span>主力買賣超(張)</span><strong id="brokerNet">-3,802</strong></div>
+          </div>
+          <small>提示：把這些數字更新成最新值，系統會即時計分。</small>
+        </article>
+        <article>
+          <h2>紅黃綠燈</h2>
+          <div class="score-wrap">
+            <p>綜合分數</p>
+            <div class="score" id="score">0</div>
+            <div id="signal" class="signal neutral">待輸入</div>
+          </div>
+          <button class="btn" id="runScoring">重新計分</button>
+        </article>
       </section>
 
       <section class="card">
-        <h2>三、網站頁面結構（資訊架構 IA）</h2>
-        <div class="grid three">
-          <article>
-            <h3>Dashboard</h3>
-            <p>顯示本月最強/最弱產業、風險燈號、產業資金流向。</p>
-          </article>
-          <article>
-            <h3>Trend Lab</h3>
-            <p>用折線圖、熱力圖比較 2025 與 2026 各產業變化。</p>
-          </article>
-          <article>
-            <h3>Policy Watch</h3>
-            <p>追蹤 AI 計畫、五大信賴產業與出口政策更新。</p>
-          </article>
-          <article>
-            <h3>Earnings Tracker</h3>
-            <p>彙整法說會重點，標示上修/下修及公司指引差異。</p>
-          </article>
-          <article>
-            <h3>Risk Console</h3>
-            <p>監控關稅、匯率、地緣與供應鏈中斷風險。</p>
-          </article>
-          <article>
-            <h3>Action Center</h3>
-            <p>輸出每月調整建議與持股權重變更紀錄。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>四、核心追蹤指標（建議）</h2>
-        <table>
+        <h2>1) 每月基本面比較（可編輯）</h2>
+        <table id="fundTable">
           <thead>
             <tr>
               <th>指標</th>
-              <th>用途</th>
-              <th>更新頻率</th>
+              <th>康舒(6282)</th>
+              <th>同業A</th>
+              <th>同業B</th>
+              <th>判讀重點</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>出口年增率（電子零組件/資通）</td>
-              <td>判斷外需景氣與 AI 供應鏈熱度</td>
-              <td>月</td>
-            </tr>
-            <tr>
-              <td>上市櫃產業營收 YoY</td>
-              <td>驗證景氣是否擴散到次產業</td>
-              <td>月</td>
-            </tr>
-            <tr>
-              <td>法說會 CapEx 指引</td>
-              <td>觀察企業對未來需求信心</td>
-              <td>季</td>
-            </tr>
-            <tr>
-              <td>庫存天數與應收帳款天數</td>
-              <td>辨識拉貨與真需求差異</td>
-              <td>季</td>
-            </tr>
-            <tr>
-              <td>政策推動里程碑</td>
-              <td>找中長期趨勢與估值溢價來源</td>
-              <td>月</td>
-            </tr>
+            <tr><td>月營收YoY(%)</td><td contenteditable>14.63</td><td contenteditable>12.10</td><td contenteditable>8.50</td><td>連續2-3月 >10% 加分</td></tr>
+            <tr><td>毛利率(%)</td><td contenteditable>18.2</td><td contenteditable>20.3</td><td contenteditable>16.4</td><td>比營收更能判斷質量</td></tr>
+            <tr><td>營益率(%)</td><td contenteditable>6.4</td><td contenteditable>7.2</td><td contenteditable>5.6</td><td>確認獲利改善是否延續</td></tr>
+            <tr><td>外資持股比(%)</td><td contenteditable>21.0</td><td contenteditable>18.0</td><td contenteditable>15.0</td><td>邊漲邊減碼要小心</td></tr>
           </tbody>
         </table>
       </section>
 
-      <section class="card">
-        <h2>五、你可以直接照做的 4 週落地計畫</h2>
-        <div class="grid two">
-          <article>
-            <h3>第 1–2 週</h3>
-            <ul>
-              <li>整理資料來源（主計總處、財政部、NDC、法說會）。</li>
-              <li>建立資料欄位與指標定義表。</li>
-              <li>完成產業分類（半導體/AI伺服器/傳產/金融等）。</li>
-            </ul>
-          </article>
-          <article>
-            <h3>第 3–4 週</h3>
-            <ul>
-              <li>上線評分模型與儀表板。</li>
-              <li>設定每月再平衡與警示門檻。</li>
-              <li>用回測驗證 2025→2026 的分類有效性。</li>
-            </ul>
-          </article>
-        </div>
+      <section class="card grid two">
+        <article>
+          <h2>2) 券商分點追蹤</h2>
+          <table id="brokerTable">
+            <thead>
+              <tr>
+                <th>週別</th><th>買超重點</th><th>賣超重點</th><th>淨買賣(張)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>W1</td><td contenteditable>港商野村</td><td contenteditable>摩根士丹利</td><td contenteditable>-950</td></tr>
+              <tr><td>W2</td><td contenteditable>永豐金台中</td><td contenteditable>美商高盛</td><td contenteditable>-700</td></tr>
+              <tr><td>W3</td><td contenteditable>新光</td><td contenteditable>摩根大通</td><td contenteditable>-1200</td></tr>
+              <tr><td>W4</td><td contenteditable>--</td><td contenteditable>--</td><td contenteditable>0</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <h2>3) 三大法人追蹤</h2>
+          <table id="instTable">
+            <thead>
+              <tr><th>日期</th><th>外資</th><th>投信</th><th>自營商</th><th>合計</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2026-02-11</td><td contenteditable>2213</td><td contenteditable>-2</td><td contenteditable>-53</td><td contenteditable>2158</td></tr>
+              <tr><td>2026-02-12</td><td contenteditable>0</td><td contenteditable>0</td><td contenteditable>0</td><td contenteditable>0</td></tr>
+              <tr><td>2026-02-13</td><td contenteditable>0</td><td contenteditable>0</td><td contenteditable>0</td><td contenteditable>0</td></tr>
+            </tbody>
+          </table>
+        </article>
       </section>
 
-      <section class="card sources">
-        <h2>六、建議資料來源（官方優先）</h2>
-        <ul>
-          <li><a href="https://eng.stat.gov.tw/News_Content.aspx?n=2317&s=235721" target="_blank" rel="noreferrer">DGBAS：2025Q4 初估與 2026 展望</a></li>
-          <li><a href="https://service.mof.gov.tw/public/Data/statistic/bulletin/115/114%E5%B9%B4%E6%88%91%E5%9C%8B%E5%87%BA%E9%80%B2%E5%8F%A3%E8%B2%BF%E6%98%93%E6%A6%82%E6%B3%81_%E8%8B%B1%E6%96%87%E7%89%88.pdf" target="_blank" rel="noreferrer">財政部：2025 年我國出進口貿易概況</a></li>
-          <li><a href="https://www.ndc.gov.tw/en/News7.aspx?n=D5932C00BE444345&sms=8A0404D0C442445F" target="_blank" rel="noreferrer">NDC：五大信賴產業與 AI 相關政策</a></li>
-          <li><a href="https://english.tier.org.tw/eng_forecast/annual.aspx" target="_blank" rel="noreferrer">TIER：2026 經濟與產業趨勢展望</a></li>
-          <li><a href="https://www.sinica.edu.tw/en/news_content/55/3423" target="_blank" rel="noreferrer">中研院：2026 台灣經濟預測</a></li>
-        </ul>
+      <section class="card">
+        <h2>4) 2030 產業情境（可改假設）</h2>
+        <div class="grid three">
+          <article>
+            <h3>樂觀</h3>
+            <p>AI 資料中心持續擴建，高功率電源滲透率提升。</p>
+            <p>策略：回檔分批，關注新客戶認證進度。</p>
+          </article>
+          <article>
+            <h3>中性</h3>
+            <p>需求成長但競爭升溫，毛利率改善有限。</p>
+            <p>策略：區間操作，偏向紀律停利停損。</p>
+          </article>
+          <article>
+            <h3>保守</h3>
+            <p>資本支出遞延、產業去庫存再起。</p>
+            <p>策略：降低曝險，等待趨勢重新確認。</p>
+          </article>
+        </div>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 台股產業趨勢流程網站範本</p>
+      <p>使用方式：更新表格數字 → 按「重新計分」→ 依紅黃綠燈調整策略。</p>
     </footer>
+
+    <script>
+      const toNum = (v) => Number(String(v).replace(/,/g, "").trim()) || 0;
+
+      function runScoring() {
+        const revYoy = toNum(document.querySelector("#fundTable tbody tr:nth-child(1) td:nth-child(2)").textContent);
+        const opMargin = toNum(document.querySelector("#fundTable tbody tr:nth-child(3) td:nth-child(2)").textContent);
+
+        const brokerRows = [...document.querySelectorAll("#brokerTable tbody tr")];
+        const brokerNet = brokerRows.reduce((acc, row) => acc + toNum(row.children[3].textContent), 0);
+
+        const instRows = [...document.querySelectorAll("#instTable tbody tr")];
+        const instNet = instRows.reduce((acc, row) => acc + toNum(row.children[4].textContent), 0);
+
+        document.getElementById("brokerNet").textContent = brokerNet.toLocaleString();
+        document.getElementById("instNet").textContent = instNet.toLocaleString();
+        document.getElementById("revYoy").textContent = `${revYoy.toFixed(2)}%`;
+
+        let score = 0;
+        if (revYoy >= 10) score += 3;
+        else if (revYoy >= 5) score += 2;
+        else if (revYoy > 0) score += 1;
+
+        if (opMargin >= 7) score += 2;
+        else if (opMargin >= 5) score += 1;
+
+        if (instNet > 0) score += 3;
+        else if (instNet === 0) score += 1;
+
+        if (brokerNet > 0) score += 2;
+        else if (brokerNet === 0) score += 1;
+
+        const scoreNode = document.getElementById("score");
+        const signalNode = document.getElementById("signal");
+        scoreNode.textContent = String(score);
+
+        signalNode.className = "signal";
+        if (score >= 7) {
+          signalNode.classList.add("green");
+          signalNode.textContent = "綠燈：偏多（可分批）";
+        } else if (score >= 4) {
+          signalNode.classList.add("yellow");
+          signalNode.textContent = "黃燈：震盪（區間管理）";
+        } else {
+          signalNode.classList.add("red");
+          signalNode.textContent = "紅燈：防守（降曝險）";
+        }
+      }
+
+      document.getElementById("runScoring").addEventListener("click", runScoring);
+      runScoring();
+    </script>
   </body>
 </html>
