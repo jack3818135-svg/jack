@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台股 2025→2026 產業趨勢流程網站</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="tag">TWSE INDUSTRY TREND FLOW</p>
+        <h1>台股 2025 → 2026 產業趨勢變化：分析流程網站</h1>
+        <p class="subtitle">
+          用「資料蒐集 → 指標建模 → 產業評分 → 投資決策」四段式流程，系統化追蹤台股產業輪動。
+        </p>
+        <a class="btn" href="#flow">開始看流程</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card" id="snapshot">
+        <h2>一、2025 到 2026 產業變化快照</h2>
+        <div class="grid two">
+          <article>
+            <h3>主軸上升產業</h3>
+            <ul>
+              <li><strong>半導體先進製程/封裝：</strong>AI/HPC 需求持續擴張，供應鏈維持高檔。</li>
+              <li><strong>AI 伺服器與零組件：</strong>出口與資本支出連動強，能見度相對高。</li>
+              <li><strong>資安、軍工與通訊：</strong>政策導向（五大信賴產業）帶動中長期題材。</li>
+            </ul>
+          </article>
+          <article>
+            <h3>壓力較大的產業</h3>
+            <ul>
+              <li><strong>傳產（部分塑化、鋼鐵、工具機）：</strong>受中國產能與價格競爭壓力。</li>
+              <li><strong>高耗能製造：</strong>能源成本與碳治理要求提高，獲利波動增大。</li>
+              <li><strong>景氣循環股：</strong>受關稅、匯率與地緣風險影響，波動加劇。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="flow">
+        <h2>二、流程網站設計（可直接當你的研究 SOP）</h2>
+        <ol class="steps">
+          <li>
+            <h3>Step 1 — 定義研究問題</h3>
+            <p>先鎖定 3 個問題：<br />
+              ① 哪些產業在 2026 相比 2025 明顯加速？<br />
+              ② 哪些產業由成長轉為盤整？<br />
+              ③ 哪些風險會讓估值下修？
+            </p>
+          </li>
+          <li>
+            <h3>Step 2 — 建立資料層（Data Layer）</h3>
+            <p>每月更新四類資料：總體、出口、產業營收、政策訊號。建議建立 CSV + Google Sheet + API（可選）三軌。</p>
+          </li>
+          <li>
+            <h3>Step 3 — 設計指標層（Indicator Layer）</h3>
+            <p>至少追蹤 6 指標：YoY 營收、出口年增率、毛利率趨勢、CAPEX 指引、庫存天數、政策加分。</p>
+          </li>
+          <li>
+            <h3>Step 4 — 產業評分層（Scoring Engine）</h3>
+            <p>加權範例：成長動能 35%、獲利品質 25%、政策/地緣 20%、估值安全邊際 20%。每月自動輸出排名。</p>
+          </li>
+          <li>
+            <h3>Step 5 — 決策層（Portfolio Action）</h3>
+            <p>將產業分成 A（加碼）、B（中立）、C（避開），並設置再平衡規則（如每月第一個交易日調整）。</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>三、網站頁面結構（資訊架構 IA）</h2>
+        <div class="grid three">
+          <article>
+            <h3>Dashboard</h3>
+            <p>顯示本月最強/最弱產業、風險燈號、產業資金流向。</p>
+          </article>
+          <article>
+            <h3>Trend Lab</h3>
+            <p>用折線圖、熱力圖比較 2025 與 2026 各產業變化。</p>
+          </article>
+          <article>
+            <h3>Policy Watch</h3>
+            <p>追蹤 AI 計畫、五大信賴產業與出口政策更新。</p>
+          </article>
+          <article>
+            <h3>Earnings Tracker</h3>
+            <p>彙整法說會重點，標示上修/下修及公司指引差異。</p>
+          </article>
+          <article>
+            <h3>Risk Console</h3>
+            <p>監控關稅、匯率、地緣與供應鏈中斷風險。</p>
+          </article>
+          <article>
+            <h3>Action Center</h3>
+            <p>輸出每月調整建議與持股權重變更紀錄。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>四、核心追蹤指標（建議）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>指標</th>
+              <th>用途</th>
+              <th>更新頻率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>出口年增率（電子零組件/資通）</td>
+              <td>判斷外需景氣與 AI 供應鏈熱度</td>
+              <td>月</td>
+            </tr>
+            <tr>
+              <td>上市櫃產業營收 YoY</td>
+              <td>驗證景氣是否擴散到次產業</td>
+              <td>月</td>
+            </tr>
+            <tr>
+              <td>法說會 CapEx 指引</td>
+              <td>觀察企業對未來需求信心</td>
+              <td>季</td>
+            </tr>
+            <tr>
+              <td>庫存天數與應收帳款天數</td>
+              <td>辨識拉貨與真需求差異</td>
+              <td>季</td>
+            </tr>
+            <tr>
+              <td>政策推動里程碑</td>
+              <td>找中長期趨勢與估值溢價來源</td>
+              <td>月</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>五、你可以直接照做的 4 週落地計畫</h2>
+        <div class="grid two">
+          <article>
+            <h3>第 1–2 週</h3>
+            <ul>
+              <li>整理資料來源（主計總處、財政部、NDC、法說會）。</li>
+              <li>建立資料欄位與指標定義表。</li>
+              <li>完成產業分類（半導體/AI伺服器/傳產/金融等）。</li>
+            </ul>
+          </article>
+          <article>
+            <h3>第 3–4 週</h3>
+            <ul>
+              <li>上線評分模型與儀表板。</li>
+              <li>設定每月再平衡與警示門檻。</li>
+              <li>用回測驗證 2025→2026 的分類有效性。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="card sources">
+        <h2>六、建議資料來源（官方優先）</h2>
+        <ul>
+          <li><a href="https://eng.stat.gov.tw/News_Content.aspx?n=2317&s=235721" target="_blank" rel="noreferrer">DGBAS：2025Q4 初估與 2026 展望</a></li>
+          <li><a href="https://service.mof.gov.tw/public/Data/statistic/bulletin/115/114%E5%B9%B4%E6%88%91%E5%9C%8B%E5%87%BA%E9%80%B2%E5%8F%A3%E8%B2%BF%E6%98%93%E6%A6%82%E6%B3%81_%E8%8B%B1%E6%96%87%E7%89%88.pdf" target="_blank" rel="noreferrer">財政部：2025 年我國出進口貿易概況</a></li>
+          <li><a href="https://www.ndc.gov.tw/en/News7.aspx?n=D5932C00BE444345&sms=8A0404D0C442445F" target="_blank" rel="noreferrer">NDC：五大信賴產業與 AI 相關政策</a></li>
+          <li><a href="https://english.tier.org.tw/eng_forecast/annual.aspx" target="_blank" rel="noreferrer">TIER：2026 經濟與產業趨勢展望</a></li>
+          <li><a href="https://www.sinica.edu.tw/en/news_content/55/3423" target="_blank" rel="noreferrer">中研院：2026 台灣經濟預測</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 台股產業趨勢流程網站範本</p>
+    </footer>
+  </body>
+</html>
