@@ -1,86 +1,188 @@
 :root {
-  --bg: #0b1020;
-  --card: #151c33;
-  --ink: #e8ecff;
-  --sub: #b6c1ef;
-  --accent: #78a6ff;
-  --line: #2b3b73;
+  --bg: #0f172a;
+  --card: #111827;
+  --ink: #e5e7eb;
+  --sub: #9ca3af;
+  --accent: #3b82f6;
+  --line: #334155;
+  --ok: #10b981;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Noto Sans TC", "PingFang TC", sans-serif;
-  background: linear-gradient(180deg, #0a0f1f, #111a31);
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
   color: var(--ink);
-  line-height: 1.7;
+  line-height: 1.6;
 }
+
 .container {
   width: min(1100px, 92vw);
   margin: 0 auto;
 }
+
 .hero {
-  padding: 64px 0 44px;
+  padding: 56px 0 30px;
   border-bottom: 1px solid var(--line);
 }
+
 .tag {
   display: inline-block;
   font-size: 12px;
-  letter-spacing: .12em;
-  color: #90a8ff;
-  background: #1a2758;
+  letter-spacing: 0.12em;
+  color: #dbeafe;
+  background: #1d4ed8;
   padding: 6px 10px;
   border-radius: 999px;
 }
-h1 { font-size: clamp(30px, 5vw, 44px); margin: 16px 0; line-height: 1.2; }
-.subtitle { color: var(--sub); max-width: 760px; }
-.btn {
-  display: inline-block;
-  margin-top: 12px;
-  color: white;
-  background: var(--accent);
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-weight: 700;
+
+h1 {
+  margin: 14px 0 8px;
+  line-height: 1.2;
 }
-main { padding: 28px 0 56px; }
+
+.subtitle {
+  color: var(--sub);
+  max-width: 860px;
+}
+
+main {
+  padding: 22px 0 56px;
+}
+
 .card {
-  background: rgba(21, 28, 51, .9);
+  background: color-mix(in oklab, var(--card) 92%, black);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 22px;
-  margin: 18px 0;
+  padding: 18px;
+  margin: 14px 0;
 }
-.grid { display: grid; gap: 14px; }
-.grid.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.grid.three { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-article {
-  background: #111a32;
-  border: 1px solid #24366f;
+
+.inner {
+  margin-top: 16px;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+input,
+select,
+textarea {
+  background: #0b1224;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 9px 10px;
+}
+
+textarea {
+  min-height: 68px;
+}
+
+.btn {
+  margin-top: 12px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.secondary {
+  background: #475569;
+}
+
+.danger {
+  background: #b91c1c;
+}
+
+.hint {
+  color: var(--sub);
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.okr-item {
+  border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 12px 14px;
+  padding: 12px;
+  margin-top: 10px;
+  background: #0b1224;
 }
-h2 { margin-top: 0; }
-h3 { margin: 0 0 8px; }
-ul, ol { padding-left: 22px; margin: 0; }
-.steps li { margin-bottom: 10px; }
-table {
+
+.okr-title {
+  margin: 0 0 8px;
+}
+
+.kpi {
+  color: #bfdbfe;
+  margin: 0 0 8px;
+}
+
+.checkpoint {
+  border-top: 1px dashed var(--line);
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.stats-table {
   width: 100%;
   border-collapse: collapse;
-  overflow: hidden;
-  border-radius: 10px;
 }
-th, td {
+
+.stats-table th,
+.stats-table td {
   border: 1px solid var(--line);
-  padding: 10px;
+  padding: 8px;
   text-align: left;
 }
-th { background: #1d2a5b; }
-.sources a { color: #9dc0ff; }
-footer {
-  border-top: 1px solid var(--line);
-  text-align: center;
-  color: var(--sub);
-  padding: 16px;
+
+.stats-table th {
+  background: #1e3a8a;
+}
+
+.pill {
+  background: #064e3b;
+  color: #d1fae5;
+  border: 1px solid #065f46;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
 }
